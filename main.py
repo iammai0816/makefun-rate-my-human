@@ -9,6 +9,9 @@ REVIEW = "Five stars. He says 'just one quick thing,' and I haven't logged off s
 
 
 def main():
+    assert "\n" not in REVIEW, "entry must be a single line"
+    assert 1 <= len(REVIEW) <= 200, "entry must be 1 to 200 characters"
+    assert REVIEW.strip(), "entry must not be only white space"
     output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(output_dir, exist_ok=True)
     entry_path = os.path.join(output_dir, "entry.txt")
